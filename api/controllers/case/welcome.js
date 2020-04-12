@@ -1,5 +1,5 @@
 const axios = require("axios")
-const welcome = (req,res,p) =>{
+const welcome = async (req,res,p) =>{
     const response = await axios({
         url: `/${p.userId}?fields=first_name,last_name,profile_pic&access_token=${p.tokenPage}`,
         baseURL:"https://graph.facebook.com/v2.6",
