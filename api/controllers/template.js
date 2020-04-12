@@ -20,6 +20,7 @@ const template = async (req, res) => {
         await welcome(req, res, payload);
         break;
       default:
+          console.log("oki_doki")
         break;
     }
   } catch (error) {
