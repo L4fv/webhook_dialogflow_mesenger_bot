@@ -53,11 +53,12 @@ const welcome = async (req, res, p) => {
     fulfillmentMessages: fulfillmentMessages,
     outputContexts: [
       {
-        name: p.session + "/contexts/awaiting_answer",
+        name: p.session + "/contexts/awaiting_question",
         lifespanCount: 1,
         parameters: {},
       }      
     ],
+    reset
   });
 };
 
