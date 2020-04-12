@@ -58,7 +58,7 @@ const welcome = async (req, res, p) => {
         parameters: {},
       }      
     ],
-    reset
+    
   });
 };
 
