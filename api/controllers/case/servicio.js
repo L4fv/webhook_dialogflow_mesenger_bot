@@ -51,11 +51,6 @@ const resolveAnswer = async (req, res, p) => {
           lifespanCount: 1,
           parameters: {},
         },
-        {
-          name: p.session + "/contexts/awaiting_response_2",
-          lifespanCount: 0,
-          parameters: {},
-        },
       ],
     });
   } else {
@@ -74,11 +69,6 @@ const resolveAnswer = async (req, res, p) => {
         {
           name: p.session + "/contexts/awaiting_response_2",
           lifespanCount: 1,
-          parameters: {},
-        },
-        {
-          name: p.session + "/contexts/awaiting_servicio",
-          lifespanCount: 0,
           parameters: {},
         },
       ],
