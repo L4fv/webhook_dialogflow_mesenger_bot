@@ -51,6 +51,11 @@ const resolveAnswer = async (req, res, p) => {
           lifespanCount: 1,
           parameters: {},
         },
+        {
+          name: p.session + "/contexts/awaiting_response_2",
+          lifespanCount: 0,
+          parameters: {},
+        },
       ],
     });
   } else {
@@ -65,11 +70,18 @@ const resolveAnswer = async (req, res, p) => {
           },
         },
       ],
-      outputContexts: [        {
-        name: p.session + "/contexts/awaiting_response_2",
-        lifespanCount: 1,
-        parameters: {},
-      },],
+      outputContexts: [
+        {
+          name: p.session + "/contexts/awaiting_response_2",
+          lifespanCount: 1,
+          parameters: {},
+        },
+        {
+          name: p.session + "/contexts/awaiting_servicio",
+          lifespanCount: 0,
+          parameters: {},
+        },
+      ],
     });
   }
 };
@@ -215,6 +227,5 @@ module.exports = {
   awaiting_time_servicio,
   resolveAnswer,
   awaiting_end_custom,
-  awaiting_direccion
-  
+  awaiting_direccion,
 };
