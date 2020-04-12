@@ -1,4 +1,5 @@
 const axios = require("axios");
+
 const welcome = async (req, res, p) => {
   const { data } = await axios({
     url: `/${p.userId}?fields=first_name,last_name,profile_pic&access_token=${p.tokenPage}`,
@@ -10,16 +11,23 @@ const welcome = async (req, res, p) => {
   });
   console.log("datos: ", data);
 
-  const bienvenido = [
+  const bienvenidos = [
     {
       platform: "FACEBOOK",
       text: {
         text: [
-          `Hola ${data.first_name}, ${data.last_name}, bienvenido a SH Saneamiento y Servicios`,
-          "¿Prefieres responder nuestras preguntas o enviarnos un mensaje?",
+          `Hola ${data.first_name}, ${data.last_name}, bienvenido a SH Saneamiento y Servicios`          
         ],
       },
     },
+    {
+        platform: "FACEBOOK",
+        text: {
+          text: [            
+            "¿Prefieres responder nuestras preguntas o enviarnos un mensaje?",
+          ],
+        },
+      },
     {
       platform: "FACEBOOK",
       payload: {
@@ -45,12 +53,12 @@ const welcome = async (req, res, p) => {
     fulfillmentMessages: bienvenidos,
     outputContexts: [
       {
-        name: p.session + "/contexts/QUESTION_1",
+        name: p.session + "/contexts/question_1",
         lifespanCount: 0,
         parameters: {},
       },
       {
-        name: p.session + "/contexts/QUESTION_2",
+        name: p.session + "/contexts/question_2",
         lifespanCount: 0,
         parameters: {},
       },
