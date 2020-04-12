@@ -48,7 +48,7 @@ const resolveAnswer = async (req, res, p) => {
       outputContexts: [
         {
           name: p.session + "/contexts/awaiting_servicio",
-          lifespanCount: 0,
+          lifespanCount: 1,
           parameters: {},
         },
       ],
@@ -112,7 +112,7 @@ const awaiting_time_servicio = async (req, res, p) => {
     outputContexts: [
       {
         name: p.session + "/contexts/awaiting_time_servicio",
-        lifespanCount: 0,
+        lifespanCount: 1,
         parameters: {},
       },
     ],
@@ -149,7 +149,7 @@ const awaiting_phone = async (req, res, p) => {
     outputContexts: [
       {
         name: p.session + "/contexts/awaiting_phone",
-        lifespanCount: 0,
+        lifespanCount: 1,
         parameters: {},
       },
     ],
@@ -174,7 +174,7 @@ const awaiting_direccion = async (req, res, p) => {
     outputContexts: [
       {
         name: p.session + "/contexts/awaiting_direccion",
-        lifespanCount: 0,
+        lifespanCount: 1,
         parameters: {},
       },
     ],
@@ -199,7 +199,7 @@ const awaiting_end_custom = async (req, res, p) => {
     outputContexts: [
       {
         name: p.session + "/contexts/awaiting_end_custom",
-        lifespanCount: 0,
+        lifespanCount: 1,
         parameters: {},
       },
     ],

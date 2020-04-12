@@ -22,12 +22,12 @@ const template = async (req, res) => {
         "EAADjNAsHypIBANzPPj6CGX2c8OHZBG2tSVO7qRpnsFrekOhbWVUEEdsxmmasogszKOy5IlLzIx6R5pAOznlGUHOWPnK5ZBgStAlZAYzPxalmnRZA8DkeYJRfM90iZB9htPhF68uQEAna0go24KXOZCk3VVx75ZB2fpuFmVaNfAbXQZDZD",
     };
 
-    console.log(
+/*     console.log(
       "CONTEXT: ",
       getContextGeneric(req.body.queryResult.outputContexts)
-    );
+    ); */
 
-    console.log("ACTION: ", action);
+    console.log("ACTION: >>>>>>", action);
     switch (action) {
       case "_START":
         await welcome(req, res, payload);
