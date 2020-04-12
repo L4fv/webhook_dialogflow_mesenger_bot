@@ -11,7 +11,7 @@ const welcome = async (req, res, p) => {
   });
   console.log("datos: ", data);
 
-  const bienvenidos = [
+  const fulfillmentMessages = [
     {
       platform: "FACEBOOK",
       text: {
@@ -37,12 +37,12 @@ const welcome = async (req, res, p) => {
             {
               content_type: "text",
               title: "responder a sus preguntas!",
-              payload: "QUESTION_1",
+              payload: "robot",
             },
             {
               content_type: "text",
               title: "Contactar con un asesor",
-              payload: "QUESTION_2",
+              payload: "no_robot",
             },
           ],
         },
@@ -50,7 +50,7 @@ const welcome = async (req, res, p) => {
     },
   ];
   res.send({
-    fulfillmentMessages: bienvenidos,
+    fulfillmentMessages: fulfillmentMessages,
     outputContexts: [
       {
         name: p.session + "/contexts/question_1",

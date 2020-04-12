@@ -1,5 +1,11 @@
 const axios = require("axios");
-const { servicio } = require("./case/servicio");
+const {
+  awaiting_phone,
+  awaiting_time_servicio,
+  resolveAnswer,
+  awaiting_end_custom,
+  awaiting_direccion,
+} = require("./case/servicio");
 const { welcome } = require("./case/welcome");
 const { getContextGeneric } = require("utils/helper");
 const template = async (req, res) => {
@@ -26,24 +32,20 @@ const template = async (req, res) => {
       case "_START":
         await welcome(req, res, payload);
         break;
-      case "get_servicio":
-        await servicio(req, res, payload);
-
+      case "get_answer":
+        await resolveAnswer(req, res, payload);
         break;
-      case "end_conversation":
+      case "get_servicio":
+        await awaiting_time_servicio(req, res, payload);
         break;
       case "get_time_servicio":
-        console.log("get_time_servicio");
+        await awaiting_phone(req, res, payload);
         break;
       case "get_phone_number":
-        console.log("get_phone_number");
+        await awaiting_direccion(req, res, payload);
         break;
       case "get_direccion":
-        console.log("get_direccion");
-        break;
-
-      case "end_conversation_custom":
-        console.log("end_conversation_custom");
+        await awaiting_end_custom(req, res, payload);
         break;
       default:
         console.log("oki_doki");
