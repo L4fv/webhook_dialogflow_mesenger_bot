@@ -65,7 +65,11 @@ const resolveAnswer = async (req, res, p) => {
           },
         },
       ],
-      outputContexts: [],
+      outputContexts: [        {
+        name: p.session + "/contexts/awaiting_response_2",
+        lifespanCount: 1,
+        parameters: {},
+      },],
     });
   }
 };
