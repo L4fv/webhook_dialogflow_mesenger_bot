@@ -4,6 +4,7 @@ module.exports = {
   getContextGeneric: function (outputContexts) {
     //return outputContexts.filter(context => context.name.indexOf("generic") > -1)[0];
     outputContexts.map((v) => console.log("output : ", v));
+    return
   },
 
   

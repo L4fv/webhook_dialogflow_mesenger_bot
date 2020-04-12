@@ -4,6 +4,7 @@ const resolveAnswer = async (req, res, p) => {
   const parameters = req.body.queryResult.parameters;
   console.log("parameters :", parameters);
   if (parameters.value == "robot") {
+    console.log("1")
     const fulfillmentMessages = [
       {
         platform: "FACEBOOK",
@@ -54,6 +55,7 @@ const resolveAnswer = async (req, res, p) => {
       ],
     });
   } else {
+    console.log("2")
     res.send({
       fulfillmentMessages: [
         {
@@ -70,7 +72,7 @@ const resolveAnswer = async (req, res, p) => {
           name: p.session + "/contexts/awaiting_response_2",
           lifespanCount: 1,
           parameters: {},
-        },
+        },        
       ],
     });
   }
