@@ -4,7 +4,7 @@ const resolveAnswer = async (req, res, p) => {
   const parameters = req.body.queryResult.parameters;
   console.log("parameters :", parameters);
   if (parameters.idFirstQuestion == "robot") {
-    console.log("1");
+    //console.log("1");
     const fulfillmentMessages = [
       {
         platform: "FACEBOOK",
@@ -60,7 +60,7 @@ const resolveAnswer = async (req, res, p) => {
       ],
     });
   } else {
-    console.log("2");
+    //console.log("2");
     res.send({
       fulfillmentMessages: [
         {
