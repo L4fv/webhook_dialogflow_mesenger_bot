@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 const resolveAnswer = async (req, res, p) => {
-  const parameters = req.body.parameters;
+  const parameters = req.body.queryResult.parameters;
   console.log("parameters :", parameters);
   if (parameters.value == "robot") {
     const fulfillmentMessages = [
@@ -71,7 +71,7 @@ const resolveAnswer = async (req, res, p) => {
 };
 
 const awaiting_time_servicio = async (req, res, p) => {
-  const parameters = req.body.parameters;
+  const parameters = req.body.queryResult.parameters;
   console.log("parameters :", parameters);
 
   const fulfillmentMessages = [
@@ -119,7 +119,7 @@ const awaiting_time_servicio = async (req, res, p) => {
   });
 };
 const awaiting_phone = async (req, res, p) => {
-  const parameters = req.body.parameters;
+  const parameters = req.body.queryResult.parameters;
   console.log("parameters :", parameters);
 
   const fulfillmentMessages = [
@@ -156,7 +156,7 @@ const awaiting_phone = async (req, res, p) => {
   });
 };
 const awaiting_direccion = async (req, res, p) => {
-  const parameters = req.body.parameters;
+  const parameters = req.body.queryResult.parameters;
   console.log("parameters :", parameters);
 
   const fulfillmentMessages = [
@@ -181,7 +181,7 @@ const awaiting_direccion = async (req, res, p) => {
   });
 };
 const awaiting_end_custom = async (req, res, p) => {
-  const parameters = req.body.parameters;
+  const parameters = req.body.queryResult.parameters;
   console.log("parameters :", parameters);
 
   const fulfillmentMessages = [
