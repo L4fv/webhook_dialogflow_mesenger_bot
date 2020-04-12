@@ -3,7 +3,7 @@ const axios = require("axios");
 const resolveAnswer = async (req, res, p) => {
   const parameters = req.body.queryResult.parameters;
   console.log("parameters :", parameters);
-  if (parameters.value == "robot") {
+  if (parameters.idFirstQuestion == "robot") {
     console.log("1");
     const fulfillmentMessages = [
       {
