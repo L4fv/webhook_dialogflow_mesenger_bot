@@ -1,5 +1,5 @@
 const axios = require("axios");
-
+const {getContextGeneric} = require("utils/helper")
 const resolveAnswer = async (req, res, p) => {
   const parameters = req.body.queryResult.parameters;
   console.log("parameters :", parameters);
@@ -176,7 +176,27 @@ const awaiting_phone = async (req, res, p) => {
 const awaiting_direccion = async (req, res, p) => {
   const parameters = req.body.queryResult.parameters;
   console.log("parameters :", parameters);
-
+  const params = getContextGeneric(req.body.queryResult.outputContexts)
+  console.log("INFO_DATA: ",params.parameters)
+  const { data } = await axios({
+    url: `/orq/email/v2.0/send`,
+    baseURL: "http://localhost:3001",
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    data: {
+      setup: {
+        serviceId: 1,
+      },
+      payload: {
+        destinatario: "info@sh-invyneg.com",
+        asunto: "CHATBOT - INFO",
+        html: emailFormat({...params.parameters})
+      },
+    },
+  });
+  console.log("datos: ", data);
   const fulfillmentMessages = [
     {
       platform: "FACEBOOK",
@@ -201,27 +221,7 @@ const awaiting_direccion = async (req, res, p) => {
 const awaiting_end_custom = async (req, res, p) => {
   const parameters = req.body.queryResult.parameters;
   console.log("parameters :", parameters);
-  const params = getContextGeneric(req.body.queryResult.outputContexts)
-  console.log("INFO_DATA: ",params.parameters)
-  const { data } = await axios({
-    url: `/orq/email/v2.0/send`,
-    baseURL: "http://localhost:3001",
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    data: {
-      setup: {
-        serviceId: 1,
-      },
-      payload: {
-        destinatario: "info@sh-invyneg.com",
-        asunto: "CHATBOT - INFO",
-        html: emailFormat({...params.parameters})
-      },
-    },
-  });
-  console.log("datos: ", data);
+
   const fulfillmentMessages = [
     {
       platform: "FACEBOOK",
