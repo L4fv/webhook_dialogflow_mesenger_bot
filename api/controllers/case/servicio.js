@@ -22,22 +22,22 @@ const resolveAnswer = async (req, res, p) => {
               {
                 content_type: "text",
                 title: "Desinfección",
-                payload: "a",
+                payload: "Desinfección",
               },
               {
                 content_type: "text",
                 title: "Fumigación",
-                payload: "b",
+                payload: "Fumigación",
               },
               {
                 content_type: "text",
                 title: "Desinfección y Fumigación",
-                payload: "c",
+                payload: "Desinfección y Fumigación",
               },
               {
                 content_type: "text",
                 title: "Limpieza, Desinfección y Fumigación",
-                payload: "d",
+                payload: "Limpieza, Desinfección y Fumigación",
               },
             ],
           },
@@ -108,17 +108,17 @@ const awaiting_time_servicio = async (req, res, p) => {
             {
               content_type: "text",
               title: "Lo antes posible",
-              payload: "a",
+              payload: "Lo antes posible",
             },
             {
               content_type: "text",
               title: "En Una Semana",
-              payload: "b",
+              payload: "En Una Semana",
             },
             {
               content_type: "text",
               title: "En dos semanas",
-              payload: "c",
+              payload: "En dos semanas",
             },
           ],
         },
