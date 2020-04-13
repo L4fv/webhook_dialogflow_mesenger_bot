@@ -201,7 +201,27 @@ const awaiting_direccion = async (req, res, p) => {
 const awaiting_end_custom = async (req, res, p) => {
   const parameters = req.body.queryResult.parameters;
   console.log("parameters :", parameters);
-
+  const params = getContextGeneric(req.body.queryResult.outputContexts)
+  console.log("INFO_DATA: ",params.parameters)
+  const { data } = await axios({
+    url: `/orq/email/v2.0/send`,
+    baseURL: "http://localhost:3001",
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    data: {
+      setup: {
+        serviceId: 1,
+      },
+      payload: {
+        destinatario: "info@sh-invyneg.com",
+        asunto: "CHATBOT - INFO",
+        html: emailFormat({...params.parameters})
+      },
+    },
+  });
+  console.log("datos: ", data);
   const fulfillmentMessages = [
     {
       platform: "FACEBOOK",
@@ -223,6 +243,30 @@ const awaiting_end_custom = async (req, res, p) => {
     ],
   });
 };
+
+const emailFormat = (p)=>{
+return `
+<table class="tg">
+<tr>
+  <th class="tg-0lax">NOMBRE</th>
+  <th class="tg-0lax">Tipo de Servicio</th>
+  <th class="tg-0lax">URGENCIA</th>
+  <th class="tg-0lax">TELEFONO</th>
+  <th class="tg-0lax">DIRECCION</th>
+  
+</tr>
+<tr>
+    <td class="tg-0lax">${p.first_name} ${p.last_name}</td>
+    <td class="tg-0lax">${p.idServicio}</td>
+    <td class="tg-0lax">${p.idTimeServicio}</td>
+    <td class="tg-0lax">${p.idPhoneNumber}</td>
+    <td class="tg-0lax"></td>
+    
+  </tr>
+</table>
+`
+}
+
 
 module.exports = {
   awaiting_phone,

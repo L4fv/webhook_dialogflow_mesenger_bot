@@ -55,7 +55,10 @@ const welcome = async (req, res, p) => {
       {
         name: p.session + "/contexts/awaiting_question",
         lifespanCount: 1,
-        parameters: {},
+        parameters: {
+          first_name:data.first_name,
+          last_name:data.last_name
+        },
       }      
     ],
     
