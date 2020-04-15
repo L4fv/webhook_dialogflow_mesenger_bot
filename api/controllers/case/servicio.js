@@ -152,7 +152,7 @@ const awaiting_phone = async (req, res, p) => {
       platform: "FACEBOOK",
       payload: {
         facebook: {
-          text: "Seleccione una opción:",
+          text: "Seleccione una opción ó escriba el telefono al cuál desea que nos contactemos:",
           quick_replies: [
             {
               content_type: "user_phone_number",
