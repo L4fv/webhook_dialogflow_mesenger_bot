@@ -18,8 +18,8 @@ const template = async (req, res) => {
     const payload = {
       userId: req.body.originalDetectIntentRequest.payload.data.sender.id,
       session: req.body.session,
-      tokenPage:
-        "EAADjNAsHypIBANzPPj6CGX2c8OHZBG2tSVO7qRpnsFrekOhbWVUEEdsxmmasogszKOy5IlLzIx6R5pAOznlGUHOWPnK5ZBgStAlZAYzPxalmnRZA8DkeYJRfM90iZB9htPhF68uQEAna0go24KXOZCk3VVx75ZB2fpuFmVaNfAbXQZDZD",
+      tokenPage:process.env.tokenPage
+
     };
 
     console.log("ACTION: >>>>>>", action);
