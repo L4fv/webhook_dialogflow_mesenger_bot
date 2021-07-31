@@ -41,7 +41,7 @@ app.set("host", process.env.NODEJS_IP);
 app.get(
   "/",
   (rootHandler = (req, res) => {
-    res.json("MicroServicio de Evaluacion");
+    res.json("MicroServicio running");
   })
 );
 
